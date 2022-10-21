@@ -11,7 +11,6 @@ class AdminsController < ApplicationController
     end
 
 
-
     def show
         admin = Admin.find_by(id: session[:admin_id])
         if admin
