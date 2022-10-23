@@ -1,18 +1,24 @@
 Rails.application.routes.draw do
-  resources :admins, only: [:index, :show, :create]
-  resources :users, only: [:index, :show, :create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   # root "articles#index"
 
+  resources :users, only: [:index, :show, :create]
+  
+  #Authentication routes
+  post '/signup', to: "users#create_user"
 
-  post '/signup', to: "users#create"
+  post '/login', to: "users#login_user"
 
-  get '/me', to: 'users#show'
+  delete '/logout', to: "users#logout_user"
 
-  post '/signup', to: 'admins#create'
+  #Menu
+  # post '/create', to: "menus#create_menus"
 
-  get '/me', to: 'admins#show'
+  # get '/menus', to: "menus#get_menus"
 
+  # put '/menus/:menu_id/update', to: "menus#update_menu"
+
+  # delete '/menus/:menu_id/destroy', to: "menus#delete_menus"
 end

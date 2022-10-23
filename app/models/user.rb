@@ -6,5 +6,6 @@ class User < ApplicationRecord
     has_many :menus, through: :menuitems
 
     has_many :orders
-    has_many :menus, through: :orders
+    has_many :menus
+    
 end

@@ -1,23 +1,23 @@
 class ApplicationController < ActionController::API
     include ActionController::Cookies
 
-    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
-    private
+    wrap_parameters format: []
+
+    def app_response(status_code: 200, message: "Success", body: nil)
+        render json: {
+            status: status_code,
+            message: message,
+            body: body
+        }, status: status_code
+    end
 
     def authorize
-      @current_user = User.find_by(id: session[:user_id])
-  
-      render json: { errors: ["Not authorized"] }, status: :unauthorized unless @current_user
+        return app_response(status_code: 401, message: "You are unauthorized to view this page") unless session.include? :user_id
     end
 
-    # def authorize
-    #     @current_admin = Admin.find_by(id: session[:admin_id])
-    
-    #     render json: { errors: ["Not authorized"] }, status: :unauthorized unless @current_admin
-    #   end
-  
-    def render_unprocessable_entity_response(exception)
-      render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
+    def authorize_potential_admin
+        return app_response(status_code: 401, message: "You can not perform that action")  unless session[:user_type] == "admin"
     end
+
 end
