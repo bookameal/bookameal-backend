@@ -27,20 +27,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_22_201831) do
 
   create_table "menus", force: :cascade do |t|
     t.integer "menu_items_id"
+    t.datetime "day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer "quantity"
+    t.bigint "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["users_id"], name: "index_orders_on_users_id"
   end
 
   create_table "specific_menus", force: :cascade do |t|
     t.integer "price"
     t.string "name"
-    t.string "image"
+    t.string "image_url"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -55,4 +58,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_22_201831) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "orders", "users", column: "users_id"
 end
