@@ -24,13 +24,19 @@ class MenuItemsController < ApplicationController
         end
     end
 
+    def destroy
+        item = find_menuitem
+        item.destroy
+        head :no_content
+    end
+
     private 
     def find_menuitem
         MenuItem.find(params[:id])
     end
 
     def item_params
-        params.permit(:price, :name,)
+        params.permit(:price, :name, :image_url, :category, :description, :admin_id)
     end 
 
    

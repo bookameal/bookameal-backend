@@ -5,8 +5,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-<<<<<<< HEAD
-  resources :menu_items, only: [:index, :show, :create, :update]
+  resources :menu_items, only: [:index, :show, :create, :update, :destroy]
   resources :menus, only: [:index]
 
   get "menu_items", to: 'menu_items#index'
@@ -14,7 +13,6 @@ Rails.application.routes.draw do
 
   get "menus", to: 'menus#index'
 
-=======
 
   resources :users, only: [:index, :show, :create]
   
@@ -33,5 +31,5 @@ Rails.application.routes.draw do
   # put '/menus/:menu_id/update', to: "menus#update_menu"
 
   # delete '/menus/:menu_id/destroy', to: "menus#delete_menus"
->>>>>>> cd811fef11d5e992e2ce992a74e79acb048414c4
+# >>>>>>> cd811fef11d5e992e2ce992a74e79acb048414c4
 end
