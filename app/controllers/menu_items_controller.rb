@@ -1,7 +1,8 @@
 class MenuItemsController < ApplicationController
     def index
-        items = MenuItem.all
-        render json: items
+         items = MenuItem.all
+         render json: items
+        # render json: MenuItem.all, status: :ok
     end
 
     def show 
@@ -23,6 +24,12 @@ class MenuItemsController < ApplicationController
             render json: {error: "Item not found"}, status: :not_found
         end
     end
+    
+     def destroy
+        item = find_menuitem
+        item.destory
+        head :no_content
+     end 
 
     private 
     def find_menuitem
@@ -30,7 +37,7 @@ class MenuItemsController < ApplicationController
     end
 
     def item_params
-        params.permit(:price, :name,)
+        params.permit(:price, :name, :image_url, :description, :on_menu, :category_id, :user_type)
     end 
 
    

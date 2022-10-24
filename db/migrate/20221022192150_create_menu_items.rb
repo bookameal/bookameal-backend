@@ -5,8 +5,9 @@ class CreateMenuItems < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :image_url
       t.string :description
-      t.string :category
-      t.integer :admin_id
+      t.boolean :on_menu
+      t.integer :category_id
+      t.integer :user_type
 
       t.timestamps
     end
