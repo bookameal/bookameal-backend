@@ -37,29 +37,36 @@ puts "seeding users"
     Order.create({
         quantity: 3,
         day: "11/11/2022",
-        user_id:3,
+        user_id:1,
         menu_item_id: 1
     })
 
     Order.create({
         quantity: 5,
         day: "11/11/2022",
-        user_id:3,
+        user_id:2,
         menu_item_id: 5
     })
 
     Order.create({
         quantity: 1,
         day: "11/11/2022",
-        user_id:2,
+        user_id:3,
         menu_item_id: 2
     })
 
     Order.create({
         quantity: 1,
         day: "11/11/2022",
-        user_id:1,
+        user_id:4,
         menu_item_id: 3
+    })
+
+    Order.create({
+        quantity: 10,
+        day: "11/11/2022",
+        user_id:5,
+        menu_item_id: 6
     })
 
 puts "seeding menuitem"
