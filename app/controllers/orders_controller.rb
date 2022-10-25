@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+    rescue_from ActiveRecord::RecordNotFound, with: :not_found_response
+    rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity_response
+    
     def index
         render json: Order.all, status: :ok
     end
@@ -31,5 +34,13 @@ class OrdersController < ApplicationController
 
     def order_params
         params.permit(:user_id, :tenant_id, :day, :quantity, :order_number, :item, :unit_name, :user_id, :menu_item_id)
+    end
+
+    def not_found_response
+        render json: {error: "Order record not found"}, status: :not_found
+    end
+
+    def unprocessable_entity_response(invalid)
+        render json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
     end
 end
