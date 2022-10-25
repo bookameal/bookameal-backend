@@ -26,7 +26,7 @@ class MenuItemsController < ApplicationController
     
       def destroy
          item = find_menuitem
-         item.destory
+         item.destroy
          head :no_content
       end 
 
