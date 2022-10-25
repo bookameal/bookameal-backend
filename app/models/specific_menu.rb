@@ -1,2 +1,0 @@
-class SpecificMenu < ApplicationRecord
-end
