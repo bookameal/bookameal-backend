@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
+  resources :menu_items, only: [:index, :show, :create, :update, :destroy]
+  get 'menu_items', to: 'menu_items#index'
+  
   resources :categories
   resources :orders
-  #resources :specific_menus
-  resources :menu_items, only: [:index, :show, :create, :update, :destroy]
-  
-  get "menu_items", to: 'menu_items#index'
-  get "menu_items/:id", to: 'menu_items#show'
+   
+   
+  # get "menu_items/:id", to: 'menu_items#show'
 
-  get "menus", to: 'menus#index'
+  # get "menus", to: 'menus#index'
 
 
   resources :users, only: [:index, :show, :create]
