@@ -35,14 +35,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_124437) do
 
   create_table "menus", force: :cascade do |t|
     t.integer "menu_items_id"
+    t.datetime "day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "day"
+    t.integer "user_id", null: false
+    t.integer "menu_item_id", null: false
   end
 
   create_table "users", force: :cascade do |t|
