@@ -1,3 +1,6 @@
 class MenuItem < ApplicationRecord
-    has_many :menus
+    belongs_to :category
+    has_many :orders
+
 end
+ 
