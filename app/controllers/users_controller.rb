@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+    def index
+        render json: User.all,  status: :ok
+    end
+    
     def create_user
         user = User.create!(user_params)
         user_session(user.id, user.user_type)

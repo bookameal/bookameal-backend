@@ -1,10 +1,37 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.
+puts "seeding users"
+User.create(
+    {
+        user_name: "admin",
+        email: "admin@bookameal.com",
+        password: "admin123",
+        user_type: 1
+    })
+
+   User.create( {
+        user_name: "Carlton",
+        email: "carlton.mbaja@student.moringaschool.com",
+        password: "123",
+        user_type: 0
+    })
+    User.create({
+        user_name: "Vera Kwamboks",
+        email: "vera.kwamboks@student.moringaschool.com",
+        password: "123",
+        user_type: 0
+    })
+    User.create({
+        user_name: "James Omenda",
+        email: "james.omenda@student.moringaschool.com",
+        password: "123",
+        user_type: 0
+    })
+    User.create({
+        user_name: "Ivy Rono",
+        email: "ivy.rono@student.moringaschool.com",
+        password: "123",
+        user_type: 0
+    })
+
 puts "seeding menuitem"
 
 MenuItem.create({price: 150, name: "Spanish Omlette", image_url: "https://thatspicychick.com/wp-content/uploads/2021/01/Tortilla-Espanola-front-view-on-plate-with-sliced-wedge.jpg",  description: "Contains two eggs served with tea, milk, coffee and chocolate", on_menu:true, category_id:25, user_type:1})
