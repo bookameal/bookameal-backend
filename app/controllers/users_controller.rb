@@ -3,7 +3,17 @@ class UsersController < ApplicationController
     def index
         render json: User.all,  status: :ok
     end
+
+    def show
+        user = User.find_by(id: session[:user_id])
+        if user
+          render json: user, status: :ok 
+        else
+          render json: {error: "Unauthorized"}, status: :unauthorized
+        end
     
+   end
+
     def create_user
         user = User.create!(user_params)
         user_session(user.id, user.user_type)
