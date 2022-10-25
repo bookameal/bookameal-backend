@@ -1,5 +1,5 @@
 puts "seeding users"
-User.create(
+   User.create(
     {
         user_name: "admin",
         email: "admin@bookameal.com",
@@ -30,6 +30,36 @@ User.create(
         email: "ivy.rono@student.moringaschool.com",
         password: "123",
         user_type: 0
+    })
+
+    puts "seeding orders"
+
+    Order.create({
+        quantity: 3,
+        day: "11/11/2022",
+        user_id:3,
+        menu_item_id: 1
+    })
+
+    Order.create({
+        quantity: 5,
+        day: "11/11/2022",
+        user_id:3,
+        menu_item_id: 5
+    })
+
+    Order.create({
+        quantity: 1,
+        day: "11/11/2022",
+        user_id:2,
+        menu_item_id: 2
+    })
+
+    Order.create({
+        quantity: 1,
+        day: "11/11/2022",
+        user_id:1,
+        menu_item_id: 3
     })
 
 puts "seeding menuitem"
