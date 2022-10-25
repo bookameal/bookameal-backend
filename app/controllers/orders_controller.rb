@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
     private
 
     def order_params
-        params.permit(:user_id, :tenant_id, :day, :quantity, :order_number, :item, :unit_name, :user_id, :menu_item_id)
+        params.permit(:quantity, :day, :user_id, :menu_item_id)
     end
 
     def not_found_response
