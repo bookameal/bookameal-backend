@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
 
     def update
         order= Order.find_by!(id: params[:id])
-        order.update(quantity: params[:quantity], day: params[:day], user_id: params[:user_id], menu_item_id: params[:menu_item_id],)
+        order.update(quantity: params[:quantity], day: params[:day], menu_item_id: params[:menu_item_id],)
         render json: order, status: :accepted
     end
 
