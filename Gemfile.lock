@@ -71,6 +71,7 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    bcrypt (3.1.18)
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -177,11 +178,11 @@ GEM
     zeitwerk (2.6.1)
 
 PLATFORMS
-  ruby
   x86_64-linux
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.2)
+  bcrypt (~> 3.1.7)
   bootsnap
   debug
   pg (~> 1.1)
@@ -192,7 +193,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.7.0p0
+   ruby 3.1.2p20
 
 BUNDLED WITH
-   2.3.7
+   2.3.21
