@@ -3,7 +3,7 @@ class CreateSpecificMenus < ActiveRecord::Migration[7.0]
     create_table :specific_menus do |t|
       t.integer :price
       t.string :name
-      t.string :image
+      t.string :image_url
       t.string :description
 
       t.timestamps

@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
+  resources :menu_items, only: [:index, :show, :create, :update, :destroy]
+  get 'menu_items', to: 'menu_items#index'
+  
+  resources :categories
   resources :orders
-  resources :specific_menus
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+   
+   
+  # get "menu_items/:id", to: 'menu_items#show'
+
 
   # Defines the root path route ("/")
   # root "articles#index"
-
-  resources :menu_items, only: [:index, :show, :create, :update]
+  resources :menu_items, only: [:index, :show, :create, :update, :destroy]
   resources :menus, only: [:index]
 
   get "menu_items", to: 'menu_items#index'
@@ -23,14 +28,5 @@ Rails.application.routes.draw do
   post '/login', to: "users#login_user"
 
   delete '/logout', to: "users#logout_user"
-
-  #Menu
-  # post '/create', to: "menus#create_menus"
-
-  # get '/menus', to: "menus#get_menus"
-
-  # put '/menus/:menu_id/update', to: "menus#update_menu"
-
-  # delete '/menus/:menu_id/destroy', to: "menus#delete_menus"
 
 end
