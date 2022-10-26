@@ -1,32 +1,14 @@
 Rails.application.routes.draw do
-  resources :menu_items, only: [:index, :show, :create, :update, :destroy]
-  get 'menu_items', to: 'menu_items#index'
-  
-  resources :categories
-  resources :orders
-   
-   
-  # get "menu_items/:id", to: 'menu_items#show'
 
-
-  # Defines the root path route ("/")
-  # root "articles#index"
-  resources :menu_items, only: [:index, :show, :create, :update, :destroy]
-  resources :menus, only: [:index]
-
-  get "menu_items", to: 'menu_items#index'
-  get "menu_items/:id", to: 'menu_items#show'
-
-  get "menus", to: 'menus#index'
-
-
-  resources :users, only: [:index, :show, :create]
-  
-  #Authentication routes
-  post '/signup', to: "users#create_user"
-
-  post '/login', to: "users#login_user"
-
-  delete '/logout', to: "users#logout_user"
+      resources :users, only: [:index, :show, :create]
+      resources :orders
+      resources :menu_items, only: [:index, :show, :create, :update, :destroy] 
+      resources :categories
+      resources :menus, only: [:index]
+      
+      #Authentication routes
+      post '/signup', to: "users#create_user"
+      post '/login', to: "users#login_user"
+      delete '/logout', to: "users#logout_user"
 
 end
