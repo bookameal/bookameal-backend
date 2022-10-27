@@ -1,5 +1,19 @@
 class UsersController < ApplicationController
 
+    def index
+        render json: User.all,  status: :ok
+    end
+
+    def show
+        user = User.find_by(id: session[:user_id])
+        if user
+          render json: user, status: :ok 
+        else
+          render json: {error: "Unauthorized"}, status: :unauthorized
+        end
+    
+   end
+
     def create_user
         user = User.create!(user_params)
         user_session(user.id, user.user_type)
@@ -12,7 +26,7 @@ class UsersController < ApplicationController
 
 
     def login_user
-        user = User.find_by(user_name: params[:user_name])
+        user = User.find_by(email: params[:email])
         user_session(user.id, user.user_type)
         if user&.authenticate(params[:password])
             app_response(status_code: 200, message: "Logged in succesfully", body: user, serializer: UserSerializer)

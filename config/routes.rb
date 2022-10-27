@@ -8,8 +8,6 @@ Rails.application.routes.draw do
    
   # get "menu_items/:id", to: 'menu_items#show'
 
-  # get "menus", to: 'menus#index'
-
   # Defines the root path route ("/")
   # root "articles#index"
   resources :menu_items, only: [:index, :show, :create, :update, :destroy]
