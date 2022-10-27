@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
 
     def login_user
-        user = User.find_by(user_name: params[:user_name])
+        user = User.find_by(email: params[:email])
         user_session(user.id, user.user_type)
         if user&.authenticate(params[:password])
             app_response(status_code: 200, message: "Logged in succesfully", body: user, serializer: UserSerializer)
