@@ -8,10 +8,6 @@ Rails.application.routes.draw do
    
   # get "menu_items/:id", to: 'menu_items#show'
 
-<<<<<<< HEAD
-  # get "menus", to: 'menus#index'
-
-=======
   # Defines the root path route ("/")
   # root "articles#index"
   resources :menu_items, only: [:index, :show, :create, :update, :destroy]
@@ -22,7 +18,6 @@ Rails.application.routes.draw do
 
   get "menus", to: 'menus#index'
 
->>>>>>> 6b389dc80328ad75b1f0b1194585cce4f0b593c2
 
   resources :users, only: [:index, :show, :create]
   
@@ -30,6 +25,8 @@ Rails.application.routes.draw do
   post '/signup', to: "users#create_user"
 
   post '/login', to: "users#login_user"
+
+  # get '/me', to: "users#login_user"
 
   delete '/logout', to: "users#logout_user"
 
@@ -41,8 +38,5 @@ Rails.application.routes.draw do
   # put '/menus/:menu_id/update', to: "menus#update_menu"
 
   # delete '/menus/:menu_id/destroy', to: "menus#delete_menus"
-<<<<<<< HEAD
-=======
 # >>>>>>> cd811fef11d5e992e2ce992a74e79acb048414c4
->>>>>>> 6b389dc80328ad75b1f0b1194585cce4f0b593c2
 end

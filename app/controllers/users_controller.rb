@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+    def index
+        render json: User.all, status_code: 201
+    end
+
     def create_user
         user = User.create!(user_params)
         user_session(user.id, user.user_type)
@@ -12,7 +16,7 @@ class UsersController < ApplicationController
 
 
     def login_user
-        user = User.find_by(user_name: params[:user_name])
+        user = User.find_by(email: params[:email])
         user_session(user.id, user.user_type)
         if user&.authenticate(params[:password])
             app_response(status_code: 200, message: "Logged in succesfully", body: user, serializer: UserSerializer)
@@ -20,6 +24,15 @@ class UsersController < ApplicationController
             app_response(status_code: 401, message: "Invalid user_name  or password")
         end
     end
+
+    # def show
+    #     user = User.find_by(user_session(user.user_type))
+    #     if user
+    #         render json: user, status: :created
+    #     else
+    #         render json: {error: "Not authorized"}, status: :unauthorized
+    #     end
+    # end
 
     def logout_user
         delete_user_session
