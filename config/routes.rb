@@ -18,7 +18,6 @@ Rails.application.routes.draw do
 
   get "menus", to: 'menus#index'
 
-
   resources :users, only: [:index, :show, :create]
   
   #Authentication routes

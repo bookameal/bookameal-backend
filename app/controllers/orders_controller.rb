@@ -6,6 +6,9 @@ class OrdersController < ApplicationController
         render json: Order.all, status: :ok
     end
 
+    def total
+        render json: Order.count(quantity).all, status: :ok
+    end
     def show
         order = Order.find_by!(id: params[:id])
         render json: order, status: :ok
@@ -18,7 +21,7 @@ class OrdersController < ApplicationController
 
     def update
         order= Order.find_by!(id: params[:id])
-        order.update(quantity: params[:quantity], dayTime: params[:dayTime], menu_item_id: params[:menu_item_id],)
+        order.update(quantity: params[:quantity], dayTime: params[:dayTime], menu_item_id: params[:menu_item_id])
         render json: order, status: :accepted
     end
 
@@ -33,7 +36,7 @@ class OrdersController < ApplicationController
     private
 
     def order_params
-        params.permit(:quantity, :dayTime, :user_id, :menu_item_id)
+        params.permit(:quantity, :dayTime, :total, :user_id, :menu_item_id)
     end
 
     def not_found_response
