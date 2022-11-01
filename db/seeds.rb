@@ -36,42 +36,42 @@ puts "seeding users"
 
     Order.create({
         quantity: 3,
-        # day: "11/11/2022",
+       dayTime: "11/11/2022",
         user_id:1,
         menu_item_id: 1
     })
 
     Order.create({
         quantity: 5,
-        # day: "11/11/2022",
+       dayTime: "11/11/2022",
         user_id:2,
         menu_item_id: 5
     })
 
     Order.create({
         quantity: 1,
-        # day: "11/11/2022",
+       dayTime: "11/11/2022",
         user_id:3,
         menu_item_id: 2
     })
 
     Order.create({
         quantity: 1,
-        # day: "11/11/2022",
+       dayTime: "11/11/2022",
         user_id:4,
         menu_item_id: 3
     })
 
     Order.create({
         quantity: 10,
-        # day: "11/11/2022",
+       dayTime: "11/11/2022",
         user_id:5,
         menu_item_id: 6
     })
 
 puts "seeding menuitem"
 
-MenuItem.create({price: 150, name: "Spanish Omlette", image_url: "https://thatspicychick.com/wp-content/uploads/2021/01/Tortilla-Espanola-front-view-on-plate-with-sliced-wedge.jpg",  description: "Contains two eggs served with tea, milk, coffee and chocolate", on_menu:true, category_id:1, user_type:1})
+MenuItem.create({name: "Spanish Omlette", price: 150, image_url: "https://thatspicychick.com/wp-content/uploads/2021/01/Tortilla-Espanola-front-view-on-plate-with-sliced-wedge.jpg",  description: "Contains two eggs served with tea, milk, coffee and chocolate", on_menu:true, category_id:1, user_type:1})
 
 MenuItem.create({name: "Mandazi", price: 100, image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS4Mq3tq23EYhZN6OT8rIeoMTzTXLGIX7qVv9orXNhYpjmwKDS72vocJnPlcdUBapY6vQ&usqp=CAU", description: "Two mandazis served with tea, milk, coffee and chocolate", on_menu:true, category_id:2, user_type:1})
 
