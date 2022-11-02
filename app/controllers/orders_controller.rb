@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     end
 
     def create 
-        order = Order.create!(order_params)
+        order = Order.create(order_params)
         render json: order, status: :created
     end
 
