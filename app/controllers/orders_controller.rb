@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     end
 
     def create 
-        order = Order.create(order_params)
+        order = Order.create!(order_params)
         render json: order, status: :created
     end
 
@@ -33,9 +33,8 @@ class OrdersController < ApplicationController
     private
 
     def order_params
-        # params.permit(:quantity, :dayTime, :user_id, :cart_items)
-        params.permit(:quantity, :dayTime, :user_id, cart_items:[])
-
+        params.permit(:quantity, :dayTime, :user_id, :menu_item_id)
+        # params.permit(:quantity, :dayTime, :user_id, cart_items:[])
     end
 
     def not_found_response
