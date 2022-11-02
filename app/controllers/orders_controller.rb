@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
 
     def order_params
         # params.permit(:quantity, :dayTime, :user_id, :cart_items)
-        params.permit(:quantity, :dayTime, :user_id, cart_items:{:id,:price, :name,:cartQuantity, :user_type, :quantity, :image_url,:description,:category_id,:on_menu,:created_at,:updated_at})
+        params.permit(:quantity, :dayTime, :user_id, cart_items:[])
 
     end
 
