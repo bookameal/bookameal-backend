@@ -4,7 +4,7 @@ class CreateOrders < ActiveRecord::Migration[7.0]
       t.integer :quantity
       t.datetime :dayTime
       t.integer "user_id", null: false
-      t.integer "menu_item_id", null: false
+      # t.integer "menu_item_id", null: false
     end
   end
 end
