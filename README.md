@@ -29,29 +29,6 @@ Clone the project
 ```
 
 
-## Installation
-
-Clone bookameal-backend with git.
-
-
-```bash
-  git clone git@github.com:bookameal/bookameal-backend.git
-```  
-```bash
-  cd bookameal-backend
-```
-```bash
-  bundle install
-```
-```bash
-  rails db:create
-```
-```bash
-  rails db:migrate db:seed
-```
-```bash
-  rails s
-```
 ## API Reference
 
 #### Get all  /menu-items
