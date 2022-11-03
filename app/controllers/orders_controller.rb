@@ -11,8 +11,8 @@ class OrdersController < ApplicationController
     end
 
     def getTodayTotals
-        todays = Order.where(dayTime: Date.today.to_s).sum(:total)
-        render json: todays, status: :ok
+        today = Order.where(dayTime: Date.today.to_s).sum(:total)
+        render json: today, status: :ok
     end
 
     def show
