@@ -4,32 +4,32 @@ puts "seeding users"
         user_name: "admin",
         email: "admin@bookameal.com",
         password: "admin123",
-        user_type: 1
+        is_admin: true
     })
 
    User.create( {
         user_name: "Carlton",
         email: "carlton.mbaja@student.moringaschool.com",
         password: "123",
-        user_type: 0
+        is_admin: false
     })
     User.create({
         user_name: "Vera Kwamboks",
         email: "vera.kwamboks@student.moringaschool.com",
         password: "123",
-        user_type: 0
+        is_admin: false
     })
     User.create({
         user_name: "James Omenda",
         email: "james.omenda@student.moringaschool.com",
         password: "123",
-        user_type: 0
+        is_admin: false
     })
     User.create({
         user_name: "Ivy Rono",
         email: "ivy.rono@student.moringaschool.com",
         password: "123",
-        user_type: 0
+        is_admin: false
     })
 
     puts "seeding category"
@@ -71,35 +71,40 @@ puts "done seeding menuitems"
         quantity: 3,
        dayTime: "11/11/2022",
         user_id:1,
-        menu_item_id: 1
+        menu_item_id: 1,
+        total: 450
     })
 
     Order.create({
         quantity: 5,
        dayTime: "11/11/2022",
         user_id:2,
-        menu_item_id: 5
+        menu_item_id: 5,
+        total: 2250
     })
 
     Order.create({
         quantity: 1,
        dayTime: "11/11/2022",
         user_id:3,
-        menu_item_id: 2
+        menu_item_id: 2,
+        total: 100
     })
 
     Order.create({
         quantity: 1,
        dayTime: "11/11/2022",
         user_id:4,
-        menu_item_id: 3
+        menu_item_id: 3,
+        total: 100
     })
 
     Order.create({
         quantity: 10,
        dayTime: "11/11/2022",
         user_id:5,
-        menu_item_id: 6
+        menu_item_id: 6,
+        total: 3500
     })
 
 
