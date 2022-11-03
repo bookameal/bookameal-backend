@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
     def create_user
         user = User.create!(user_params)
-        user_session(user.id, user.user_type)
+        user_session(user.id)
         if user.valid?
            app_response(status_code: 201, message: "Account created succesfully", body: user, serializer: UserSerializer)
         else
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
     def login_user
         user = User.find_by(email: params[:email])
-        user_session(user.id, user.user_type)
+        user_session(user.id)
         if user&.authenticate(params[:password])
             app_response(status_code: 200, message: "Logged in succesfully", body: user, serializer: UserSerializer)
         else
@@ -46,16 +46,16 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:user_name, :email, :password, :user_type)
+        params.permit(:user_name, :email, :password, :is_admin)
     end
 
-    def  user_session user_id,user_type
+    def  user_session user_id
         session[:user_id] ||= user_id
-        session[:user_type] ||= user_type
+        # session[:is_admin] ||= is_admin
     end
 
     def delete_user_session
         session.delete :user_id
-        session.delete :user_type
+        # session.delete :is_admin
     end
 end

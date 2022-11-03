@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_124437) do
     t.string "description"
     t.boolean "on_menu"
     t.integer "category_id"
-    t.integer "user_type"
+    t.boolean "is_admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,7 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_124437) do
     t.string "user_name"
     t.string "email"
     t.string "password_digest"
-    t.integer "user_type", default: 0
+    t.boolean "is_admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
