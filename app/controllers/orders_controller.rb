@@ -6,6 +6,15 @@ class OrdersController < ApplicationController
         render json: Order.all, status: :ok
     end
 
+    def getTotals
+        render json: Order.sum(:total), status: :ok
+    end
+
+    def getTodayTotals
+        todays = Order.where(dayTime: Date.today.to_s).sum(:total)
+        render json: todays, status: :ok
+    end
+
     def show
         order = Order.find_by!(id: params[:id])
         render json: order, status: :ok

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :categories
   resources :orders
    
+  get "/totals", to: 'orders#getTotals'
+  get "/Todaytotals", to: 'orders#getTodayTotals'
    
   # get "menu_items/:id", to: 'menu_items#show'
 
