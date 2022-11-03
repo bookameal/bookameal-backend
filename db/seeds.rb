@@ -1,10 +1,46 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.
+puts "seeding users"
+   User.create(
+    {
+        user_name: "admin",
+        email: "admin@bookameal.com",
+        password: "admin123",
+        user_type: 1
+    })
+
+   User.create( {
+        user_name: "Carlton",
+        email: "carlton.mbaja@student.moringaschool.com",
+        password: "123",
+        user_type: 0
+    })
+    User.create({
+        user_name: "Vera Kwamboks",
+        email: "vera.kwamboks@student.moringaschool.com",
+        password: "123",
+        user_type: 0
+    })
+    User.create({
+        user_name: "James Omenda",
+        email: "james.omenda@student.moringaschool.com",
+        password: "123",
+        user_type: 0
+    })
+    User.create({
+        user_name: "Ivy Rono",
+        email: "ivy.rono@student.moringaschool.com",
+        password: "123",
+        user_type: 0
+    })
+
+    puts "seeding category"
+
+Category.create(name: "breakfast", time:6)
+Category.create(name: "lunch", time:12)
+Category.create(name: "dinner", time:4)
+
+puts "done seeding category"
+
+
 puts "seeding menuitem"
 
 MenuItem.create({price: 150, name: "Spanish Omlette", image_url: "https://thatspicychick.com/wp-content/uploads/2021/01/Tortilla-Espanola-front-view-on-plate-with-sliced-wedge.jpg",  description: "Contains two eggs served with tea, milk, coffee and chocolate", on_menu:true, category_id:2, is_admin:true})
@@ -28,17 +64,48 @@ MenuItem.create(name: "chapati and beef stew", price: 400, image_url: "https://w
 
 puts "done seeding menuitems"
 
-puts "seeding category"
 
-Category.create(name: "breakfast", time:6)
-Category.create(name: "lunch", time:12)
-Category.create(name: "dinner", time:4)
+    puts "seeding orders"
 
-puts "done seeding category"
+    Order.create({
+        quantity: 3,
+       dayTime: "11/11/2022",
+        user_id:1,
+        menu_item_id: 1
+    })
+
+    Order.create({
+        quantity: 5,
+       dayTime: "11/11/2022",
+        user_id:2,
+        menu_item_id: 5
+    })
+
+    Order.create({
+        quantity: 1,
+       dayTime: "11/11/2022",
+        user_id:3,
+        menu_item_id: 2
+    })
+
+    Order.create({
+        quantity: 1,
+       dayTime: "11/11/2022",
+        user_id:4,
+        menu_item_id: 3
+    })
+
+    Order.create({
+        quantity: 10,
+       dayTime: "11/11/2022",
+        user_id:5,
+        menu_item_id: 6
+    })
+
 
 
 puts "seeding user"
-User.create(user_name: "admin", email: "admin@bookameal.com", password: "admin123", is_admin: true)
+
 # "id": 1,
 # "user_name": "admin",
 # "email": "admin@bookameal.com",
